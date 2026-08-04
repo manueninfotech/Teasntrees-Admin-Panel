@@ -269,20 +269,24 @@ const StatCard = ({ label, value, icon: Icon, theme, desc, loading }) => {
     const style = themes[theme] || themes.indigo;
     const [gradientFrom, gradientTo, shadow, textColor, bgColor] = style.split(' ');
     return (
-        <div className="relative overflow-hidden bg-white p-6 rounded-[2rem] border border-gray-100 shadow-sm hover:shadow-xl transition-all group">
-            <div className="relative flex items-center justify-between">
-                <div className="space-y-1">
+        <div className="relative overflow-hidden bg-white p-5 sm:p-6 rounded-[2rem] border border-gray-100 shadow-sm flex flex-col justify-between">
+            <div className="flex items-start justify-between gap-3">
+                <div className="space-y-1 min-w-0 flex-1">
                     <p className="text-[10px] font-black text-gray-400 uppercase tracking-widest leading-none">{label}</p>
-                    <h3 className={`text-3xl font-black text-gray-900 tracking-tighter ${loading ? 'animate-pulse opacity-50' : ''}`}>{value}</h3>
-                    <div className={`flex items-center gap-1 py-1 px-3 ${bgColor} rounded-full w-fit`}>
-                        <ArrowRight className={`w-3 h-3 ${textColor}`} />
-                        <span className={`text-[10px] font-black uppercase tracking-tight ${textColor}`}>{desc}</span>
-                    </div>
+                    <h3 className={`text-2xl sm:text-3xl font-black text-gray-900 tracking-tighter leading-none ${loading ? 'animate-pulse opacity-50' : ''}`}>{value}</h3>
                 </div>
-                <div className={`p-4 rounded-2xl bg-gradient-to-br ${gradientFrom} ${gradientTo} text-white shadow-lg ${shadow} transform group-hover:rotate-12 transition-all duration-300`}>
-                    <Icon className="w-7 h-7" />
+                <div className={`p-3.5 sm:p-4 rounded-2xl bg-gradient-to-br ${gradientFrom} ${gradientTo} text-white shadow-md ${shadow} shrink-0`}>
+                    <Icon className="w-6 h-6 sm:w-7 sm:h-7" />
                 </div>
             </div>
+            {desc && (
+                <div className="mt-4">
+                    <div className={`inline-flex items-center gap-1.5 py-1 px-3 ${bgColor} rounded-full text-[10px] font-black uppercase tracking-tight ${textColor}`}>
+                        <ArrowRight className="w-3 h-3 shrink-0" />
+                        <span className="leading-tight">{desc}</span>
+                    </div>
+                </div>
+            )}
         </div>
     );
 };

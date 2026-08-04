@@ -7,15 +7,15 @@ export default function RiderCard({ rider, onViewDetails, onApprove, onReject, o
     };
 
     return (
-        <div className="bg-white rounded-[2rem] shadow-sm border border-gray-100 overflow-hidden hover:shadow-xl transition-all group">
+        <div className="bg-white rounded-[2rem] shadow-sm border border-gray-100 overflow-hidden">
             {/* Header Area */}
-            <div className="p-6 pb-0 flex items-start justify-between">
-                <div className="flex items-center gap-4">
-                    <div className="w-14 h-14 bg-gray-50 rounded-2xl flex items-center justify-center border border-gray-100 group-hover:bg-teal-50 transition-colors">
-                        <Bike className="w-7 h-7 text-teal-600" />
+            <div className="p-6 pb-0 flex items-start justify-between gap-2">
+                <div className="flex items-center gap-3 sm:gap-4 min-w-0 flex-1">
+                    <div className="w-12 h-12 sm:w-14 sm:h-14 bg-gray-50 rounded-2xl flex items-center justify-center border border-gray-100 shrink-0">
+                        <Bike className="w-6 h-6 sm:w-7 sm:h-7 text-teal-600" />
                     </div>
-                    <div>
-                        <h3 className="font-black text-gray-900 uppercase tracking-tight text-sm truncate max-w-[150px]">{rider.name}</h3>
+                    <div className="min-w-0 flex-1">
+                        <h3 className="font-black text-gray-900 uppercase tracking-tight text-sm leading-snug break-words">{rider.name}</h3>
                         <p className="text-[10px] font-black text-gray-400 uppercase tracking-widest mt-0.5">{rider.mobile}</p>
                     </div>
                 </div>

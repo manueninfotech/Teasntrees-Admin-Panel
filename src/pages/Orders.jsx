@@ -126,15 +126,15 @@ export default function Orders() {
 
     return (
         <div className="space-y-6 max-w-[1600px] mx-auto">
-            <div className="flex items-center justify-between">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                 <div>
-                    <h1 className="text-3xl font-black text-gray-900 uppercase tracking-tight">Orders Management</h1>
+                    <h1 className="text-2xl sm:text-3xl font-black text-gray-900 uppercase tracking-tight">Orders Management</h1>
                     <p className="text-[10px] font-black text-gray-400 uppercase tracking-widest mt-1">Management interface</p>
                 </div>
                 <button
                     onClick={() => refetch()}
                     disabled={isFetching}
-                    className="flex items-center gap-2 px-6 py-3 bg-black text-white rounded-2xl text-[10px] font-black uppercase shadow-lg disabled:opacity-50"
+                    className="flex items-center gap-2 px-5 py-3 bg-black text-white rounded-2xl text-[10px] font-black uppercase shadow-lg disabled:opacity-50 self-end sm:self-auto"
                 >
                     <RefreshCw className={`w-4 h-4 ${isFetching ? 'animate-spin' : ''}`} />
                     Sync
@@ -142,7 +142,7 @@ export default function Orders() {
             </div>
 
             {/* Gradient Stats Cards */}
-            <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
                 {statCards.map((stat, index) => (
                     <StatCard key={index} {...stat} />
                 ))}
@@ -206,7 +206,7 @@ export default function Orders() {
                                         </td>
                                         <td className="px-6 py-5">
                                             <div className="flex flex-col max-w-[450px]">
-                                                <span className="font-black text-gray-800 text-xs uppercase truncate mb-2">{order.customerId?.name || '---'}</span>
+                                                <span className="font-black text-gray-800 text-xs uppercase leading-tight break-words mb-2">{order.customerId?.name || '---'}</span>
                                                 <div className="flex flex-col gap-1.5">
                                                     {order.items.map((item, i) => (
                                                         <div key={i} className="flex flex-col">
@@ -461,20 +461,24 @@ const StatCard = ({ title, value, icon: Icon, theme, desc, onClick }) => {
     const style = themes[theme] || themes.blue;
     const [gradientFrom, gradientTo, shadow, textColor, bgColor] = style.split(' ');
     return (
-        <div onClick={onClick} className="relative overflow-hidden bg-white p-6 rounded-[2rem] border border-gray-100 shadow-sm hover:shadow-xl transition-all cursor-pointer group active:scale-95">
-            <div className="relative flex items-center justify-between">
-                <div className="space-y-1">
+        <div onClick={onClick} className="relative overflow-hidden bg-white p-5 sm:p-6 rounded-[2rem] border border-gray-100 shadow-sm cursor-pointer flex flex-col justify-between">
+            <div className="flex items-start justify-between gap-3">
+                <div className="space-y-1 min-w-0 flex-1">
                     <p className="text-[10px] font-black text-gray-400 uppercase tracking-[0.2em] leading-none">{title}</p>
-                    <h3 className="text-3xl font-black text-gray-900 tracking-tight">{value}</h3>
-                    <div className={`flex items-center gap-1 py-1 px-3 ${bgColor} rounded-full w-fit`}>
-                        <ArrowRight className={`w-3 h-3 ${textColor}`} />
-                        <span className={`text-[10px] font-black uppercase tracking-tight ${textColor}`}>{desc}</span>
-                    </div>
+                    <h3 className="text-2xl sm:text-3xl font-black text-gray-900 tracking-tighter leading-none">{value}</h3>
                 </div>
-                <div className={`p-4 rounded-[1.2rem] bg-gradient-to-br ${gradientFrom} ${gradientTo} text-white shadow-lg ${shadow} transform group-hover:rotate-12 transition-all`}>
+                <div className={`p-3.5 sm:p-4 rounded-2xl bg-gradient-to-br ${gradientFrom} ${gradientTo} text-white shadow-md ${shadow} shrink-0`}>
                     <Icon className="w-6 h-6" />
                 </div>
             </div>
+            {desc && (
+                <div className="mt-4">
+                    <div className={`inline-flex items-center gap-1.5 py-1 px-3 ${bgColor} rounded-full text-[10px] font-black uppercase tracking-tight ${textColor}`}>
+                        <ArrowRight className="w-3 h-3 shrink-0" />
+                        <span className="leading-tight">{desc}</span>
+                    </div>
+                </div>
+            )}
         </div>
     );
 };
@@ -506,7 +510,7 @@ const StatusControl = ({ currentStatus, onUpdate, isUpdating }) => {
         <div className="flex items-center gap-2">
             <button
                 onClick={() => onUpdate(nextStep.id)}
-                className="flex items-center gap-2 px-4 py-2 bg-black text-white rounded-xl text-[9px] font-black uppercase tracking-widest hover:scale-105 active:scale-95 transition-all shadow-md shadow-black/10"
+                className="flex items-center gap-2 px-4 py-2 bg-black text-white rounded-xl text-[9px] font-black uppercase tracking-widest transition-all shadow-md shadow-black/10"
             >
                 <nextStep.icon className="w-3 h-3" />
                 {nextStep.label}

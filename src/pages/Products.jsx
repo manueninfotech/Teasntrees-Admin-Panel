@@ -23,7 +23,7 @@ import {
 } from 'lucide-react';
 
 const CardSkeleton = () => (
-    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 animate-pulse">
+    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6 animate-pulse">
         {[1, 2, 3, 4, 5, 6].map(i => (
             <div key={i} className="bg-white rounded-[2rem] border border-gray-100 h-96"></div>
         ))}
@@ -154,12 +154,12 @@ export default function Products() {
 
     return (
         <div className="space-y-6">
-            <div className="flex items-center justify-between">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                 <div>
-                    <h1 className="text-3xl font-black text-gray-900 uppercase tracking-tight">Product List</h1>
-                    <p className="text-gray-500 mt-1 font-bold">Manage items and pricing</p>
+                    <h1 className="text-2xl sm:text-3xl font-black text-gray-900 uppercase tracking-tight">Product List</h1>
+                    <p className="text-gray-500 mt-1 font-bold text-xs sm:text-sm">Manage items and pricing</p>
                 </div>
-                <div className="flex items-center gap-3">
+                <div className="flex items-center gap-3 self-end sm:self-auto">
                     <button
                         onClick={() => refetch()}
                         disabled={isSyncing}
@@ -167,14 +167,14 @@ export default function Products() {
                     >
                         <RefreshCw className={`w-5 h-5 ${isSyncing ? 'animate-spin text-indigo-600' : 'text-gray-400'}`} />
                     </button>
-                    <button onClick={() => setShowModal(true)} className="flex items-center gap-2 px-6 py-3 bg-black text-white rounded-2xl text-[10px] font-black uppercase transition-all shadow-lg hover:shadow-black/20">
+                    <button onClick={() => setShowModal(true)} className="flex items-center gap-2 px-5 py-3 bg-black text-white rounded-2xl text-[10px] font-black uppercase transition-all shadow-lg hover:shadow-black/20">
                         <Plus className="w-5 h-5" />
                         New Item
                     </button>
                 </div>
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
                 <StatCard label="Total Items" value={stats.totalProducts} icon={Package} theme="blue" desc="All items listed" loading={statsLoading} />
                 <StatCard label="Categories" value={stats.categoriesCount} icon={Filter} theme="purple" desc="Active groups" loading={!categoriesData} />
                 <StatCard label="New Items" value={stats.newIntroProducts} icon={Calendar} theme="green" desc="Marked as New" loading={statsLoading} />
@@ -186,7 +186,7 @@ export default function Products() {
                     <Search className="absolute left-4 top-1/2 -translate-y-1/2 w-5 h-5 text-gray-400" />
                     <input type="text" placeholder="Search by name, SKU, or description..." value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} className="input pl-12 text-sm font-bold" />
                 </div>
-                <div className="grid grid-cols-1 md:grid-cols-3 gap-3">
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-3">
                     <select value={filters.category} onChange={(e) => setFilters({ ...filters, category: e.target.value })} className="input text-xs font-black uppercase">
                         <option value="">All Categories</option>
                         {categories.map((cat) => (
@@ -208,12 +208,12 @@ export default function Products() {
             </div>
 
             {selectedProducts.size > 0 && (
-                <div className="bg-indigo-600 rounded-2xl p-4 flex items-center justify-between text-white shadow-xl">
+                <div className="bg-indigo-600 rounded-2xl p-4 flex flex-col sm:flex-row items-center justify-between gap-3 text-white shadow-xl">
                     <div className="flex items-center gap-4 font-black uppercase text-xs">
                         <CheckSquare className="w-5 h-5" />
                         <span>{selectedProducts.size} Items Targeted</span>
                     </div>
-                    <div className="flex gap-2">
+                    <div className="flex gap-2 w-full sm:w-auto justify-end">
                         <select value={bulkAction} onChange={(e) => setBulkAction(e.target.value)} className="text-[10px] font-black uppercase border-none rounded-xl px-3 py-2 bg-white/20 text-white placeholder:text-white/50">
                             <option value="" className="text-gray-900">Choose action...</option>
                             <option value="make-available" className="text-gray-900">Push to Live</option>
@@ -227,14 +227,14 @@ export default function Products() {
 
             <div className="min-h-[400px]">
                 {products.length > 0 ? (
-                    <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
                         {products.map((product) => {
                             const categoryName = typeof product.category === 'object' && product.category !== null
                                 ? product.category.name
                                 : categoryNameById.get(product.category) || 'Uncategorized';
 
                             return (
-                                <div key={product._id} className={`group bg-white rounded-[2rem] shadow-sm border-2 overflow-hidden hover:shadow-2xl hover:-translate-y-1 transition-all ${selectedProducts.has(product._id) ? 'border-indigo-600 ring-4 ring-indigo-50' : 'border-gray-50'}`}>
+                                <div key={product._id} className={`bg-white rounded-[2rem] shadow-sm border-2 overflow-hidden ${selectedProducts.has(product._id) ? 'border-indigo-600 ring-4 ring-indigo-50' : 'border-gray-50'}`}>
                                     <div className="h-56 bg-gray-50 flex items-center justify-center relative">
                                         {product.image ? (
                                             <img src={product.image} alt={product.name} className="w-full h-full object-cover" />
@@ -329,20 +329,24 @@ const StatCard = ({ label, value, icon: Icon, theme, desc, loading }) => {
     const style = themes[theme] || themes.blue;
     const [gradientFrom, gradientTo, shadow, textColor, bgColor] = style.split(' ');
     return (
-        <div className="relative overflow-hidden bg-white p-6 rounded-[2rem] border border-gray-100 shadow-sm hover:shadow-xl transition-all group">
-            <div className="relative flex items-center justify-between">
-                <div className="space-y-1">
+        <div className="relative overflow-hidden bg-white p-5 sm:p-6 rounded-[2rem] border border-gray-100 shadow-sm flex flex-col justify-between">
+            <div className="flex items-start justify-between gap-3">
+                <div className="space-y-1 min-w-0 flex-1">
                     <p className="text-[10px] font-black text-gray-400 uppercase tracking-widest leading-none">{label}</p>
-                    <h3 className={`text-3xl font-black text-gray-900 tracking-tight ${loading ? 'animate-pulse opacity-50' : ''}`}>{value}</h3>
-                    <div className={`flex items-center gap-1 py-1 px-3 ${bgColor} rounded-full w-fit`}>
-                        <ArrowRight className={`w-3 h-3 ${textColor}`} />
-                        <span className={`text-[10px] font-black uppercase tracking-tight ${textColor}`}>{desc}</span>
-                    </div>
+                    <h3 className={`text-2xl sm:text-3xl font-black text-gray-900 tracking-tighter leading-none ${loading ? 'animate-pulse opacity-50' : ''}`}>{value}</h3>
                 </div>
-                <div className={`p-4 rounded-2xl bg-gradient-to-br ${gradientFrom} ${gradientTo} text-white shadow-lg ${shadow} transform group-hover:rotate-12 transition-all`}>
-                    <Icon className="w-7 h-7" />
+                <div className={`p-3.5 sm:p-4 rounded-2xl bg-gradient-to-br ${gradientFrom} ${gradientTo} text-white shadow-md ${shadow} shrink-0`}>
+                    <Icon className="w-6 h-6 sm:w-7 sm:h-7" />
                 </div>
             </div>
+            {desc && (
+                <div className="mt-4">
+                    <div className={`inline-flex items-center gap-1.5 py-1 px-3 ${bgColor} rounded-full text-[10px] font-black uppercase tracking-tight ${textColor}`}>
+                        <ArrowRight className="w-3 h-3 shrink-0" />
+                        <span className="leading-tight">{desc}</span>
+                    </div>
+                </div>
+            )}
         </div>
     );
 };

@@ -70,23 +70,23 @@ export default function CategoryModal({ isOpen, onClose, category, onSuccess }) 
     if (!isOpen) return null;
 
     return (
-        <div className="fixed inset-0 bg-emerald-900/40 backdrop-blur-sm flex items-center justify-center z-50 p-4">
-            <div className="bg-white rounded-[2.5rem] shadow-2xl w-full max-w-md border border-gray-100">
+        <div className="fixed inset-0 bg-emerald-900/40 backdrop-blur-sm flex items-center justify-center z-50 p-2 sm:p-4 overflow-y-auto">
+            <div className="bg-white rounded-[1.5rem] sm:rounded-[2.5rem] shadow-2xl w-full max-w-md max-h-[90vh] overflow-y-auto border border-gray-100 my-auto">
                 {/* Header */}
-                <div className="sticky top-0 bg-white/80 backdrop-blur-md border-b border-gray-50 p-8 flex items-center justify-between z-10">
-                    <h2 className="text-2xl font-black text-gray-900 uppercase tracking-tight">
+                <div className="sticky top-0 bg-white/80 backdrop-blur-md border-b border-gray-50 p-4 sm:p-8 flex items-center justify-between z-10">
+                    <h2 className="text-xl sm:text-2xl font-black text-gray-900 uppercase tracking-tight">
                         {category ? 'Edit Category' : 'Add New Category'}
                     </h2>
                     <button
                         onClick={onClose}
-                        className="p-4 bg-gray-50 text-gray-400 rounded-2xl hover:bg-emerald-600 hover:text-white transition-all"
+                        className="p-3 sm:p-4 bg-gray-50 text-gray-400 rounded-2xl hover:bg-emerald-600 hover:text-white transition-all"
                     >
-                        <X className="w-6 h-6" />
+                        <X className="w-5 h-5 sm:w-6 sm:h-6" />
                     </button>
                 </div>
 
                 {/* Form */}
-                <form onSubmit={handleSubmit} className="p-8 space-y-6">
+                <form onSubmit={handleSubmit} className="p-4 sm:p-8 space-y-6">
                     {error && (
                         <div className="bg-red-50 border border-red-100 text-red-600 px-6 py-4 rounded-2xl text-[10px] font-black uppercase tracking-widest">
                             ERROR: {error}

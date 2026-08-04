@@ -81,13 +81,13 @@ export default function Dashboard() {
     ];
 
     return (
-        <div className="space-y-8 max-w-7xl mx-auto">
-            <div className="flex items-center justify-between">
+        <div className="space-y-6 sm:space-y-8 max-w-7xl mx-auto">
+            <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                 <div>
-                    <h1 className="text-4xl font-black text-gray-900 uppercase tracking-tighter">Dashboard</h1>
+                    <h1 className="text-2xl sm:text-3xl lg:text-4xl font-black text-gray-900 uppercase tracking-tighter">Dashboard</h1>
                     <p className="text-gray-500 font-bold uppercase text-[10px] tracking-[0.2em] mt-1 italic">Overview of your business</p>
                 </div>
-                <div className="flex items-center gap-4">
+                <div className="flex items-center gap-4 self-end sm:self-auto">
                     <button
                         onClick={() => refetch()}
                         disabled={isSyncing}
@@ -98,13 +98,13 @@ export default function Dashboard() {
                 </div>
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
                 {statCards.map((stat, index) => (
                     <StatCard key={index} {...stat} onClick={() => navigate(stat.path)} />
                 ))}
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
+            <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
                 <div className="bg-white rounded-[2.5rem] shadow-sm border border-gray-100 p-8 flex flex-col min-h-[500px]">
                     <div className="flex items-center justify-between mb-8">
                         <div>
@@ -184,20 +184,24 @@ const StatCard = ({ title, value, icon: Icon, theme, desc, onClick }) => {
     const style = themes[theme] || themes.blue;
     const [gradientFrom, gradientTo, shadow, textColor, bgColor] = style.split(' ');
     return (
-        <div onClick={onClick} className="relative overflow-hidden bg-white p-8 rounded-[3rem] border border-gray-100 shadow-sm hover:shadow-2xl transition-all cursor-pointer group active:scale-95">
-            <div className="relative flex items-center justify-between">
-                <div className="space-y-1">
+        <div onClick={onClick} className="relative overflow-hidden bg-white p-5 sm:p-6 rounded-[2rem] border border-gray-100 shadow-sm cursor-pointer flex flex-col justify-between">
+            <div className="flex items-start justify-between gap-3">
+                <div className="space-y-1 min-w-0 flex-1">
                     <p className="text-[10px] font-black text-gray-400 uppercase tracking-[0.2em] leading-none">{title}</p>
-                    <h3 className="text-4xl font-black text-gray-900 tracking-tighter">{value}</h3>
-                    <div className={`flex items-center gap-1 py-1 px-3 ${bgColor} rounded-full w-fit`}>
-                        <ArrowRight className={`w-3 h-3 ${textColor}`} />
-                        <span className={`text-[10px] font-black uppercase tracking-tight ${textColor}`}>{desc}</span>
-                    </div>
+                    <h3 className="text-2xl sm:text-3xl font-black text-gray-900 tracking-tighter leading-none">{value}</h3>
                 </div>
-                <div className={`p-5 rounded-[1.5rem] bg-gradient-to-br ${gradientFrom} ${gradientTo} text-white shadow-xl ${shadow} transform group-hover:rotate-12 group-hover:scale-110 transition-all`}>
-                    <Icon className="w-8 h-8" />
+                <div className={`p-3.5 sm:p-4 rounded-2xl bg-gradient-to-br ${gradientFrom} ${gradientTo} text-white shadow-md ${shadow} shrink-0`}>
+                    <Icon className="w-6 h-6 sm:w-7 sm:h-7" />
                 </div>
             </div>
+            {desc && (
+                <div className="mt-4">
+                    <div className={`inline-flex items-center gap-1.5 py-1 px-3 ${bgColor} rounded-full text-[10px] font-black uppercase tracking-tight ${textColor}`}>
+                        <ArrowRight className="w-3 h-3 shrink-0" />
+                        <span className="leading-tight">{desc}</span>
+                    </div>
+                </div>
+            )}
         </div>
     );
 };

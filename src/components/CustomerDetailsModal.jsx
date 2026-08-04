@@ -64,24 +64,24 @@ const CustomerDetailsModal = ({ customer, onClose, onUpdate }) => {
     const stats = customerDetails.stats || {};
 
     return (
-        <div className="fixed inset-0 bg-emerald-900/40 backdrop-blur-sm flex items-center justify-center z-50 p-4">
-            <div className="bg-white rounded-[2.5rem] shadow-2xl w-full max-w-4xl max-h-[90vh] overflow-hidden border border-gray-100 flex flex-col">
+        <div className="fixed inset-0 bg-emerald-900/40 backdrop-blur-sm flex items-center justify-center z-50 p-2 sm:p-4 overflow-y-auto">
+            <div className="bg-white rounded-[1.5rem] sm:rounded-[2.5rem] shadow-2xl w-full max-w-4xl max-h-[90vh] overflow-y-auto border border-gray-100 flex flex-col my-auto">
                 {/* Header */}
-                <div className="bg-white border-b border-gray-50 p-8 flex items-center justify-between">
-                    <div className="flex items-center gap-6">
-                        <div className="w-20 h-20 bg-gray-50 rounded-[2rem] flex items-center justify-center border border-gray-100">
-                            <User className="w-10 h-10 text-gray-400" />
+                <div className="bg-white border-b border-gray-50 p-4 sm:p-8 flex items-center justify-between">
+                    <div className="flex items-center gap-3 sm:gap-6">
+                        <div className="w-14 h-14 sm:w-20 sm:h-20 bg-gray-50 rounded-[1.5rem] sm:rounded-[2rem] flex items-center justify-center border border-gray-100 flex-shrink-0">
+                            <User className="w-7 h-7 sm:w-10 sm:h-10 text-gray-400" />
                         </div>
-                        <div>
-                            <h2 className="text-3xl font-black text-gray-900 uppercase tracking-tight">{customerDetails.name || 'N/A'}</h2>
+                        <div className="min-w-0">
+                            <h2 className="text-xl sm:text-3xl font-black text-gray-900 uppercase tracking-tight truncate">{customerDetails.name || 'N/A'}</h2>
                             <p className="text-[10px] font-black text-gray-400 uppercase tracking-[0.2em] mt-1 italic">Customer Record</p>
                         </div>
                     </div>
                     <button
                         onClick={onClose}
-                        className="p-4 bg-gray-50 text-gray-400 rounded-2xl hover:bg-emerald-600 hover:text-white transition-all"
+                        className="p-3 sm:p-4 bg-gray-50 text-gray-400 rounded-2xl hover:bg-emerald-600 hover:text-white transition-all flex-shrink-0"
                     >
-                        <X className="w-6 h-6" />
+                        <X className="w-5 h-5 sm:w-6 sm:h-6" />
                     </button>
                 </div>
 
