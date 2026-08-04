@@ -72,8 +72,8 @@ export default function RiderDetailsModal({ isOpen, onClose, rider, onApprove, o
                             <Bike className="w-10 h-10 text-emerald-600" />
                         </div>
                         <div>
-                            <h2 className="text-3xl font-black text-gray-900 uppercase tracking-tight">{rider.name}</h2>
-                            <p className="text-[10px] font-black text-emerald-600 uppercase tracking-[0.2em] mt-1 italic">Rider Profile</p>
+                            <h2 className="text-xl sm:text-2xl font-black text-gray-900 uppercase tracking-tight">{rider.name}</h2>
+                            <p className="text-[9px] font-black text-emerald-600 uppercase tracking-widest mt-0.5">Rider Profile</p>
                         </div>
                     </div>
                     <button

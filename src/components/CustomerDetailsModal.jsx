@@ -73,8 +73,8 @@ const CustomerDetailsModal = ({ customer, onClose, onUpdate }) => {
                             <User className="w-7 h-7 sm:w-10 sm:h-10 text-gray-400" />
                         </div>
                         <div className="min-w-0">
-                            <h2 className="text-xl sm:text-3xl font-black text-gray-900 uppercase tracking-tight truncate">{customerDetails.name || 'N/A'}</h2>
-                            <p className="text-[10px] font-black text-gray-400 uppercase tracking-[0.2em] mt-1 italic">Customer Record</p>
+                            <h2 className="text-xl sm:text-2xl font-black text-gray-900 uppercase tracking-tight truncate">{customerDetails.name || 'N/A'}</h2>
+                            <p className="text-[9px] font-black text-gray-400 uppercase tracking-widest mt-0.5">Customer Record</p>
                         </div>
                     </div>
                     <button

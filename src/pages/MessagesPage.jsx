@@ -63,8 +63,8 @@ export default function MessagesPage() {
             {/* Header */}
             <div className="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
                 <div>
-                    <h1 className="text-3xl font-black text-gray-900 tracking-tight">Messages</h1>
-                    <p className="text-gray-500 mt-2 font-medium">Manage customer inquiries and feedback</p>
+                    <h1 className="text-xl sm:text-2xl font-black text-gray-900 uppercase tracking-tight">Messages</h1>
+                    <p className="text-gray-400 mt-0.5 font-bold text-xs">Manage customer inquiries and feedback</p>
                 </div>
 
                 <div className="flex items-center gap-4 bg-white p-2 rounded-2xl border border-gray-100 shadow-sm">

@@ -90,8 +90,8 @@ export default function CategoryDetail() {
                         <ArrowLeft className="w-6 h-6 text-gray-600" />
                     </button>
                     <div>
-                        <h1 className="text-3xl font-black text-gray-900 uppercase tracking-tight">Category Details</h1>
-                        <p className="text-gray-500 mt-1 font-bold">Manage group info and associated items</p>
+                        <h1 className="text-xl sm:text-2xl font-black text-gray-900 uppercase tracking-tight">Category Details</h1>
+                        <p className="text-gray-400 mt-0.5 font-bold text-xs">Manage group info and associated items</p>
                     </div>
                 </div>
                 <div className="flex items-center gap-3">

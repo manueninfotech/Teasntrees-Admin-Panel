@@ -138,8 +138,8 @@ export default function OrderDetailsModal({ isOpen, onClose, order, onSuccess })
                 {/* Header */}
                 <div className="sticky top-0 bg-white/80 backdrop-blur-md border-b border-gray-50 p-4 sm:p-8 flex items-center justify-between z-10">
                     <div>
-                        <h2 className="text-xl sm:text-3xl font-black text-gray-900 uppercase tracking-tight">Order Details</h2>
-                        <p className="text-[10px] font-black text-emerald-600 uppercase tracking-[0.2em] mt-1 italic">Order #{order.orderNumber}</p>
+                        <h2 className="text-xl sm:text-2xl font-black text-gray-900 uppercase tracking-tight">Order Details</h2>
+                        <p className="text-[9px] font-black text-emerald-600 uppercase tracking-widest mt-0.5">Order #{order.orderNumber}</p>
                     </div>
                     <button
                         onClick={onClose}

@@ -77,8 +77,8 @@ export default function ProductDetail() {
                         <ArrowLeft className="w-6 h-6 text-gray-600" />
                     </button>
                     <div>
-                        <h1 className="text-3xl font-black text-gray-900 uppercase tracking-tight">Product Details</h1>
-                        <p className="text-gray-500 mt-1 font-bold">Manage product configuration and availability</p>
+                        <h1 className="text-xl sm:text-2xl font-black text-gray-900 uppercase tracking-tight">Product Details</h1>
+                        <p className="text-gray-400 mt-0.5 font-bold text-xs">Manage product configuration and availability</p>
                     </div>
                 </div>
                 <div className="flex items-center gap-3">

@@ -84,16 +84,16 @@ export default function Dashboard() {
         <div className="space-y-6 sm:space-y-8 max-w-7xl mx-auto">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                 <div>
-                    <h1 className="text-2xl sm:text-3xl lg:text-4xl font-black text-gray-900 uppercase tracking-tighter">Dashboard</h1>
-                    <p className="text-gray-500 font-bold uppercase text-[10px] tracking-[0.2em] mt-1 italic">Overview of your business</p>
+                    <h1 className="text-xl sm:text-2xl font-black text-gray-900 uppercase tracking-tight">Dashboard</h1>
+                    <p className="text-gray-400 font-bold uppercase text-[9px] tracking-widest mt-0.5">Overview of your business</p>
                 </div>
                 <div className="flex items-center gap-4 self-end sm:self-auto">
                     <button
                         onClick={() => refetch()}
                         disabled={isSyncing}
-                        className="p-3 bg-white border border-gray-100 rounded-2xl shadow-sm hover:shadow-md transition-all disabled:opacity-50"
+                        className="p-2.5 bg-white border border-gray-100 rounded-2xl shadow-sm hover:shadow-md transition-all disabled:opacity-50"
                     >
-                        <RefreshCw className={`w-5 h-5 ${isSyncing ? 'animate-spin text-indigo-600' : 'text-gray-400'}`} />
+                        <RefreshCw className={`w-4 h-4 ${isSyncing ? 'animate-spin text-indigo-600' : 'text-gray-400'}`} />
                     </button>
                 </div>
             </div>
@@ -105,10 +105,10 @@ export default function Dashboard() {
             </div>
 
             <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8">
-                <div className="bg-white rounded-[2.5rem] shadow-sm border border-gray-100 p-8 flex flex-col min-h-[500px]">
-                    <div className="flex items-center justify-between mb-8">
+                <div className="bg-white rounded-[2.5rem] shadow-sm border border-gray-100 p-6 sm:p-8 flex flex-col min-h-[450px]">
+                    <div className="flex items-center justify-between mb-6">
                         <div>
-                            <h2 className="text-xl font-black uppercase text-gray-900 tracking-tight">Recent Activity</h2>
+                            <h2 className="text-base sm:text-lg font-black uppercase text-gray-900 tracking-tight">Recent Activity</h2>
                             <p className="text-[10px] font-black text-gray-400 uppercase tracking-widest mt-1">Latest incoming orders</p>
                         </div>
                         <button onClick={() => navigate(`/${urlBrand}/orders`)} className="p-3 bg-gray-50 rounded-2xl hover:bg-black hover:text-white transition-all"><ArrowRight className="w-5 h-5" /></button>
@@ -184,20 +184,20 @@ const StatCard = ({ title, value, icon: Icon, theme, desc, onClick }) => {
     const style = themes[theme] || themes.blue;
     const [gradientFrom, gradientTo, shadow, textColor, bgColor] = style.split(' ');
     return (
-        <div onClick={onClick} className="relative overflow-hidden bg-white p-5 sm:p-6 rounded-[2rem] border border-gray-100 shadow-sm cursor-pointer flex flex-col justify-between">
-            <div className="flex items-start justify-between gap-3">
+        <div onClick={onClick} className="relative overflow-hidden bg-white p-4 sm:p-5 rounded-[1.5rem] border border-gray-100 shadow-sm cursor-pointer flex flex-col justify-between">
+            <div className="flex items-start justify-between gap-2.5">
                 <div className="space-y-1 min-w-0 flex-1">
-                    <p className="text-[10px] font-black text-gray-400 uppercase tracking-[0.2em] leading-none">{title}</p>
-                    <h3 className="text-2xl sm:text-3xl font-black text-gray-900 tracking-tighter leading-none">{value}</h3>
+                    <p className="text-[9px] font-black text-gray-400 uppercase tracking-widest leading-none">{title}</p>
+                    <h3 className="text-xl sm:text-2xl font-black text-gray-900 tracking-tight leading-none">{value}</h3>
                 </div>
-                <div className={`p-3.5 sm:p-4 rounded-2xl bg-gradient-to-br ${gradientFrom} ${gradientTo} text-white shadow-md ${shadow} shrink-0`}>
-                    <Icon className="w-6 h-6 sm:w-7 sm:h-7" />
+                <div className={`p-3 rounded-xl bg-gradient-to-br ${gradientFrom} ${gradientTo} text-white shadow-md ${shadow} shrink-0`}>
+                    <Icon className="w-5 h-5 sm:w-6 sm:h-6" />
                 </div>
             </div>
             {desc && (
-                <div className="mt-4">
-                    <div className={`inline-flex items-center gap-1.5 py-1 px-3 ${bgColor} rounded-full text-[10px] font-black uppercase tracking-tight ${textColor}`}>
-                        <ArrowRight className="w-3 h-3 shrink-0" />
+                <div className="mt-3">
+                    <div className={`inline-flex items-center gap-1 py-0.5 px-2.5 ${bgColor} rounded-full text-[8px] sm:text-[9px] font-black uppercase tracking-tight ${textColor}`}>
+                        <ArrowRight className="w-2.5 h-2.5 shrink-0" />
                         <span className="leading-tight">{desc}</span>
                     </div>
                 </div>

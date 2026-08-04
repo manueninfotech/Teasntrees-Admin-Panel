@@ -128,8 +128,8 @@ export default function Orders() {
         <div className="space-y-6 max-w-[1600px] mx-auto">
             <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
                 <div>
-                    <h1 className="text-2xl sm:text-3xl font-black text-gray-900 uppercase tracking-tight">Orders Management</h1>
-                    <p className="text-[10px] font-black text-gray-400 uppercase tracking-widest mt-1">Management interface</p>
+                    <h1 className="text-xl sm:text-2xl font-black text-gray-900 uppercase tracking-tight">Orders Management</h1>
+                    <p className="text-[9px] font-black text-gray-400 uppercase tracking-widest mt-0.5">Management interface</p>
                 </div>
                 <button
                     onClick={() => refetch()}
@@ -461,20 +461,20 @@ const StatCard = ({ title, value, icon: Icon, theme, desc, onClick }) => {
     const style = themes[theme] || themes.blue;
     const [gradientFrom, gradientTo, shadow, textColor, bgColor] = style.split(' ');
     return (
-        <div onClick={onClick} className="relative overflow-hidden bg-white p-5 sm:p-6 rounded-[2rem] border border-gray-100 shadow-sm cursor-pointer flex flex-col justify-between">
-            <div className="flex items-start justify-between gap-3">
+        <div onClick={onClick} className="relative overflow-hidden bg-white p-4 sm:p-5 rounded-[1.5rem] border border-gray-100 shadow-sm cursor-pointer flex flex-col justify-between">
+            <div className="flex items-start justify-between gap-2.5">
                 <div className="space-y-1 min-w-0 flex-1">
-                    <p className="text-[10px] font-black text-gray-400 uppercase tracking-[0.2em] leading-none">{title}</p>
-                    <h3 className="text-2xl sm:text-3xl font-black text-gray-900 tracking-tighter leading-none">{value}</h3>
+                    <p className="text-[9px] font-black text-gray-400 uppercase tracking-widest leading-none">{title}</p>
+                    <h3 className="text-xl sm:text-2xl font-black text-gray-900 tracking-tight leading-none">{value}</h3>
                 </div>
-                <div className={`p-3.5 sm:p-4 rounded-2xl bg-gradient-to-br ${gradientFrom} ${gradientTo} text-white shadow-md ${shadow} shrink-0`}>
-                    <Icon className="w-6 h-6" />
+                <div className={`p-3 rounded-xl bg-gradient-to-br ${gradientFrom} ${gradientTo} text-white shadow-md ${shadow} shrink-0`}>
+                    <Icon className="w-5 h-5" />
                 </div>
             </div>
             {desc && (
-                <div className="mt-4">
-                    <div className={`inline-flex items-center gap-1.5 py-1 px-3 ${bgColor} rounded-full text-[10px] font-black uppercase tracking-tight ${textColor}`}>
-                        <ArrowRight className="w-3 h-3 shrink-0" />
+                <div className="mt-3">
+                    <div className={`inline-flex items-center gap-1 py-0.5 px-2.5 ${bgColor} rounded-full text-[8px] sm:text-[9px] font-black uppercase tracking-tight ${textColor}`}>
+                        <ArrowRight className="w-2.5 h-2.5 shrink-0" />
                         <span className="leading-tight">{desc}</span>
                     </div>
                 </div>
