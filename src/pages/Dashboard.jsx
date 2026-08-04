@@ -116,9 +116,9 @@ export default function Dashboard() {
                     <div className="space-y-4 flex-1">
                         {stats?.recentOrders?.length > 0 ? (
                             stats.recentOrders.map((order) => (
-                                <div key={order._id} onClick={() => navigate(`/${urlBrand}/orders`)} className="flex items-center justify-between p-5 bg_gray-50/50 rounded-3xl hover:bg-white hover:shadow-xl hover:shadow-gray-100 transition-all cursor-pointer border border-transparent hover:border-gray-100 group">
+                                <div key={order._id} onClick={() => navigate(`/${urlBrand}/orders`)} className="flex items-center justify-between p-5 bg-gray-50/50 rounded-3xl cursor-pointer border border-transparent group">
                                     <div className="flex items-center gap-4">
-                                        <div className="w-12 h-12 bg-white rounded-2xl flex items-center justify-center shadow-sm group-hover:scale-110 transition-transform">
+                                        <div className="w-12 h-12 bg-white rounded-2xl flex items-center justify-center shadow-sm">
                                             <ShoppingCart className="w-6 h-6 text-indigo-600" />
                                         </div>
                                         <div className="min-w-0 flex flex-col items-start text-left">
@@ -149,9 +149,9 @@ export default function Dashboard() {
                     <div className="space-y-4 flex-1">
                         {stats?.topProducts?.length > 0 ? (
                             stats.topProducts.map((product) => (
-                                <div key={product._id} onClick={() => navigate(`/${urlBrand}/products`)} className="flex items-center justify-between p-5 bg-gray-50/50 rounded-3xl hover:bg-white hover:shadow-xl hover:shadow-gray-100 transition-all cursor-pointer border border-transparent hover:border-gray-100 group">
+                                <div key={product._id} onClick={() => navigate(`/${urlBrand}/products`)} className="flex items-center justify-between p-5 bg-gray-50/50 rounded-3xl cursor-pointer border border-transparent group">
                                     <div className="flex items-center gap-4">
-                                        <div className="w-12 h-12 bg-white rounded-2xl flex items-center justify-center shadow-sm group-hover:scale-110 transition-transform">
+                                        <div className="w-12 h-12 bg-white rounded-2xl flex items-center justify-center shadow-sm">
                                             <Package className="w-6 h-6 text-orange-500" />
                                         </div>
                                         <div className="min-w-0">
