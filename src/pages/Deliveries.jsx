@@ -143,7 +143,7 @@ const Deliveries = () => {
                 </button>
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
                 <StatCard label="Active" value={stats?.activeDeliveries || 0} icon={Truck} theme="indigo" desc="On the way" loading={statsLoading} />
                 <StatCard label="Completed" value={stats?.completedDeliveries || 0} icon={CheckCircle2} theme="emerald" desc="Landed today" loading={statsLoading} />
                 <StatCard label="Earnings" value={`₹${stats?.totalEarnings || 0}`} icon={IndianRupee} theme="amber" desc="Total payouts" loading={statsLoading} />

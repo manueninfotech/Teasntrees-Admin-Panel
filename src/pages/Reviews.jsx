@@ -126,7 +126,7 @@ const Reviews = () => {
 
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-5 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5 gap-4 sm:gap-6">
                 <StatCard label="Total Reviews" value={stats?.totalReviews || 0} icon={MessageSquare} theme="blue" desc="All time reviews" loading={statsLoading} />
                 <StatCard label="Pending" value={stats?.pendingReviews || 0} icon={Star} theme="orange" desc="Need approval" loading={statsLoading} />
                 <StatCard label="Food Rating" value={stats?.averageFoodRating || '0.0'} icon={Star} theme="green" desc="Average score" loading={statsLoading} />

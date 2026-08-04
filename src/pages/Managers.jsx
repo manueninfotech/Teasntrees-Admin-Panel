@@ -180,7 +180,7 @@ export default function Managers() {
                 </button>
             </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
                 <StatCard label="Total Managers" value={stats?.total || 0} icon={Users} theme="blue" desc="All accounts" loading={statsLoading} />
                 <StatCard label="Pending Approval" value={stats?.pending || 0} icon={Clock} theme="orange" desc="New requests" loading={statsLoading} />
                 <StatCard label="Active Now" value={stats?.active || 0} icon={ShieldCheck} theme="green" desc="Managers with access" loading={statsLoading} />
@@ -212,14 +212,14 @@ export default function Managers() {
 
             <div className="min-h-[400px]">
                 {displayData.length > 0 ? (
-                    <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-4 sm:gap-6">
                         {displayData.map(manager => (
-                            <div key={manager._id} className="bg-white rounded-[2rem] shadow-sm border border-gray-100 p-6 hover:shadow-xl transition-all group">
+                            <div key={manager._id} className="bg-white rounded-[2rem] shadow-sm border border-gray-100 p-6">
                                 <div className="flex justify-between items-start mb-6">
                                     <div className="flex items-center gap-4">
-                                        <div className="w-12 h-12 bg-gray-100 rounded-2xl flex items-center justify-center group-hover:bg-blue-600 group-hover:text-white transition-all"><UserCog className="w-6 h-6" /></div>
+                                        <div className="w-12 h-12 bg-gray-100 rounded-2xl flex items-center justify-center"><UserCog className="w-6 h-6" /></div>
                                         <div className="min-w-0">
-                                            <h3 className="font-black text-gray-900 uppercase truncate text-sm">{manager.name}</h3>
+                                            <h3 className="font-black text-gray-900 uppercase break-words text-sm">{manager.name}</h3>
                                             <p className="text-[10px] font-black text-gray-400 uppercase tracking-tight">{manager.role}</p>
                                         </div>
                                     </div>

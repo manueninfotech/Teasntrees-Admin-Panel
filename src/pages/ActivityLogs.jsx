@@ -209,7 +209,7 @@ const ActivityLogs = () => {
             </div>
 
             {/* Stats Bar */}
-            <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-3 gap-6">
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
                 <StatCard
                     label="Total Logs"
                     value={stats?.totalLogs || 0}
@@ -242,7 +242,7 @@ const ActivityLogs = () => {
                     <Filter className="w-4 h-4 text-gray-400" />
                     <h3 className="text-[10px] font-black text-gray-400 uppercase tracking-widest">Search Filters</h3>
                 </div>
-                <div className="grid grid-cols-1 lg:grid-cols-2 xl:grid-cols-4 gap-4">
+                <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
                     <div className="space-y-1.5">
                         <select
                             name="action"
