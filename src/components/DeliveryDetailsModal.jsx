@@ -131,33 +131,33 @@ const DeliveryDetailsModal = ({ isOpen, onClose, delivery }) => {
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-emerald-900/40 backdrop-blur-sm">
             <div className="bg-white rounded-[2.5rem] w-full max-w-5xl overflow-hidden shadow-2xl border border-gray-100 flex flex-col max-h-[90vh]">
                 {/* Header */}
-                <div className="p-8 border-b border-gray-50 bg-white flex items-center justify-between z-10">
-                    <div className="flex items-center gap-6">
-                        <div className="w-20 h-20 bg-gray-50 rounded-[2rem] flex items-center justify-center border border-gray-100">
-                            <Truck className="w-10 h-10 text-gray-400" />
+                <div className="p-5 sm:p-6 border-b border-gray-50 bg-white flex items-center justify-between z-10">
+                    <div className="flex items-center gap-4">
+                        <div className="w-14 h-14 bg-gray-50 rounded-[1.5rem] flex items-center justify-center border border-gray-100">
+                            <Truck className="w-7 h-7 text-gray-400" />
                         </div>
                         <div>
                             <div className="flex items-center gap-3">
-                                <h2 className="text-3xl font-black text-gray-900 uppercase tracking-tight">Delivery Details</h2>
-                                <span className={`px-3 py-1 rounded-md text-[8px] font-black uppercase tracking-widest border ${delivery.status === 'delivered' ? 'bg-green-50 text-green-700 border-green-100' : 'bg-orange-50 text-orange-700 border-orange-100'
+                                <h2 className="text-xl sm:text-2xl font-black text-gray-900 uppercase tracking-tight">Delivery Details</h2>
+                                <span className={`px-2.5 py-0.5 rounded-md text-[8px] font-black uppercase tracking-widest border ${delivery.status === 'delivered' ? 'bg-green-50 text-green-700 border-green-100' : 'bg-orange-50 text-orange-700 border-orange-100'
                                     }`}>
                                     {delivery.status}
                                 </span>
                                 {delivery.orderId?.brand && (
-                                    <span className={`px-3 py-1 rounded-md text-[8px] font-black uppercase tracking-widest border ${delivery.orderId.brand === 'littleh' ? 'bg-pink-50 text-pink-700 border-pink-100' : 'bg-emerald-50 text-emerald-700 border-emerald-100'
+                                    <span className={`px-2.5 py-0.5 rounded-md text-[8px] font-black uppercase tracking-widest border ${delivery.orderId.brand === 'littleh' ? 'bg-pink-50 text-pink-700 border-pink-100' : 'bg-emerald-50 text-emerald-700 border-emerald-100'
                                         }`}>
                                         {delivery.orderId.brand === 'littleh' ? 'LITTLEH BAKERY' : 'TEAS N TREES'}
                                     </span>
                                 )}
                             </div>
-                            <p className="text-[10px] font-black text-gray-400 uppercase tracking-[0.2em] mt-1">Order ID: #{delivery.orderId?._number || delivery.orderId?.orderNumber || 'N/A'}</p>
+                            <p className="text-[9px] font-black text-gray-400 uppercase tracking-widest mt-0.5">Order ID: #{delivery.orderId?._number || delivery.orderId?.orderNumber || 'N/A'}</p>
                         </div>
                     </div>
                     <button
                         onClick={onClose}
-                        className="p-4 bg-gray-50 text-gray-400 rounded-2xl hover:bg-emerald-600 hover:text-white transition-all"
+                        className="p-2 bg-gray-50 text-gray-400 rounded-xl hover:bg-emerald-600 hover:text-white transition-all"
                     >
-                        <X className="w-6 h-6" />
+                        <X className="w-5 h-5" />
                     </button>
                 </div>
 

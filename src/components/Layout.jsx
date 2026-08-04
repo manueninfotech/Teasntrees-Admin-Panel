@@ -75,7 +75,13 @@ export default function Layout() {
     ];
 
     const isActive = (path) => {
-        return location.pathname === path;
+        if (path === `/${b}`) {
+            return location.pathname === path || location.pathname === `${path}/`;
+        }
+        if (path === `/${b}/products`) {
+            return (location.pathname === path || location.pathname.startsWith(`${path}/`)) && !location.pathname.startsWith(`${path}/seasonal`);
+        }
+        return location.pathname === path || location.pathname.startsWith(`${path}/`);
     };
 
     return (
