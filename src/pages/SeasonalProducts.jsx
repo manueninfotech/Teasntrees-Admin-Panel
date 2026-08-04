@@ -168,8 +168,8 @@ export default function SeasonalProducts() {
                                     </div>
                                     <div className="p-6 space-y-4">
                                         <div>
-                                            <h3 className="font-black text-gray-900 uppercase truncate text-sm">{product.name}</h3>
-                                            <p className="text-[10px] text-gray-400 font-bold line-clamp-1">{product.description}</p>
+                                            <h3 className="font-black text-gray-900 uppercase break-words text-sm">{product.name}</h3>
+                                            <p className="text-[10px] text-gray-400 font-bold break-words">{product.description}</p>
                                             <p className="text-[10px] font-black uppercase tracking-widest text-indigo-600 mt-1">{categoryName}</p>
                                         </div>
                                         <div className="flex items-center justify-between">
