@@ -155,7 +155,7 @@ export default function Dashboard() {
                                             <Package className="w-6 h-6 text-orange-500" />
                                         </div>
                                         <div className="min-w-0">
-                                            <p className="font-black text-gray-900 uppercase text-sm truncate">{product.name}</p>
+                                            <p className="font-black text-gray-900 uppercase text-sm break-words">{product.name}</p>
                                             <p className="text-[10px] font-black text-gray-400 uppercase tracking-tight">{product.orderCount || 0} Successful sales</p>
                                         </div>
                                     </div>
