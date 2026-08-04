@@ -124,7 +124,7 @@ export default function Categories() {
 
             <div className="min-h-[400px]">
                 {categories.length > 0 ? (
-                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-4 sm:gap-6">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4 gap-4 sm:gap-6">
                         {categories.map((category) => (
                             <div key={category._id} className="bg-white rounded-[2rem] shadow-sm border-2 border-gray-50 overflow-hidden flex flex-col">
                                 <div className="h-40 bg-gray-50/50 flex items-center justify-center relative">
